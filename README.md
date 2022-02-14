@@ -3,9 +3,12 @@
 ## Overview
 
 This is the backend of a simple login app (MERN stack).
-[[Click here for Demo]](https://compassionate-dubinsky-c44c78.netlify.app)
 
 The frontend is [simple-login-client](https://github.com/iamfranco/simple-login-client).
+
+[[Click here for Demo frontend]](https://compassionate-dubinsky-c44c78.netlify.app)
+
+[[Click here for Demo backend]](https://francochanco-simple-login.herokuapp.com)
 
 ## `.env` file
 

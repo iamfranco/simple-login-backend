@@ -6,7 +6,7 @@ const clientLoginPage = `${clientHomepage}/login`
 
 function setRoutes(app, User, passport) {
   app.get("/", (req, res) => {
-    res.send("Hello World")
+    res.send("Backend is working")
   })
 
   app.post("/register", (req, res) => {
