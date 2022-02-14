@@ -18,22 +18,19 @@ app.use(cors({ origin: endpointURI.clientHomepage, credentials: true }))
 app.set("trust proxy", 1)
 
 const User = connectDB.User
+const sessionStore = connectDB.sessionStore
 
-// passport JS strategies (local and Google)
-auth.setup(passport, User)
+auth.setup(passport, User) // passport JS strategies (local and Google)
 
-// express session cookie (which makes use of mongoDB sessionStore)
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
-    resave: true,
-    saveUninitialized: true
-    // store: sessionStore,
-    // cookie: {
-    //   sameSite: "none",
-    //   // secure: true,
-    //   maxAge: 7 * 24 * 60 * 60 * 1000 // 1 week
-    // }
+    resave: false,
+    saveUninitialized: false,
+    store: sessionStore,
+    cookie: {
+      maxAge: 7 * 24 * 60 * 60 * 1000 // 1 week
+    }
   })
 )
 
