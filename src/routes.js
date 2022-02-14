@@ -1,9 +1,8 @@
 require("dotenv").config()
 const genHashSalt = require("./auth").genHashSalt
-const endpointURI = require("./../endpointURI")
 const port = process.env.PORT || 5000
-const clientHomepage = endpointURI.clientHomepage
-const clientLoginPage = endpointURI.clientLoginPage
+const clientHomepage = process.env.CLIENT_URI
+const clientLoginPage = `${clientHomepage}/login`
 
 function setRoutes(app, User, passport) {
   app.get("/", (req, res) => {
