@@ -12,6 +12,7 @@ Within the root folder, create a `.env` file containing the environment variable
 
 ```
 CLIENT_URI=http://localhost:3000
+URI_IS_REMOTE=FALSE
 MONGO_URI=
 SESSION_SECRET=
 GOOGLE_CLIENT_ID=
@@ -20,7 +21,8 @@ GOOGLE_CLIENT_SECRET=
 
 where:
 
-- `CLIENT_URI` is the URL of the simple-login-client, we can set it as `http://localhost:3000` or appropriate
+- `CLIENT_URI` is the URL of the [simple-login-client](https://github.com/iamfranco/simple-login-client), we can set it as `http://localhost:3000` or appropriate
+- `URI_IS_REMOTE` set as `TRUE` if the site is already up on heroku etc with the `https:`, otherwise leave it as `FALSE` if it's `http://localhost...`
 - `MONGO_URI` is the MongoDB connection string
 - `SESSION_SECRET` could be any random string we like, for express-session
 - `GOOGLE_CLIENT_ID` is the client id for google OAuth
