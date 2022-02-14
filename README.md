@@ -3,6 +3,7 @@
 ## Overview
 
 This is the backend of a simple login app (MERN stack).
+[[Click here for Demo]](https://compassionate-dubinsky-c44c78.netlify.app)
 
 The frontend is [simple-login-client](https://github.com/iamfranco/simple-login-client).
 
@@ -21,7 +22,11 @@ GOOGLE_CLIENT_SECRET=
 
 where:
 
-- `CLIENT_URI` is the URL of the [simple-login-client](https://github.com/iamfranco/simple-login-client), we can set it as `http://localhost:3000` or appropriate
+- `CLIENT_URI` is the URL of the [simple-login-client](https://github.com/iamfranco/simple-login-client).
+
+  We can set it as `http://localhost:3000` if it is still local,
+  <br>or as `https://compassionate-dubinsky-c44c78.netlify.app` if it is up on netlify.
+
 - `URI_IS_REMOTE` set as `TRUE` if the site is already up on heroku etc with the `https:`, otherwise leave it as `FALSE` if it's `http://localhost...`
 - `MONGO_URI` is the MongoDB connection string
 - `SESSION_SECRET` could be any random string we like, for express-session
