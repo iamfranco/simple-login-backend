@@ -4,7 +4,7 @@
 
 This is the backend of a simple login app (MERN stack).
 
-The frontend is [simple-login-client](https://github.com/iamfranco/simple-login-client)
+The frontend is [simple-login-client](https://github.com/iamfranco/simple-login-client).
 
 ## `.env` file
 
