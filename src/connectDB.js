@@ -9,8 +9,13 @@ mongoose.connect(process.env.MONGO_URI, {}, () => {
 const User = mongoose.model(
   "users",
   new mongoose.Schema({
-    googleId: { type: String, required: false },
     displayName: { type: String, required: true },
+    someNumber: { type: Number, required: true }, // some number for user to view and modify once logged in
+
+    // for google strategy users
+    googleId: { type: String, required: false },
+
+    // for local strategy users
     username: { type: String, required: false },
     hash: { type: String, required: false },
     salt: { type: String, required: false }

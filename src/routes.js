@@ -43,7 +43,8 @@ function setRoutes(app, User, passport) {
             displayName: username,
             username: username,
             hash: hash,
-            salt: salt
+            salt: salt,
+            someNumber: 0
           },
           (err, user) => {
             if (err) {
@@ -99,9 +100,34 @@ function setRoutes(app, User, passport) {
     res.send(req.user)
   })
 
+  app.post("/setUser", ensureAuthenticated, (req, res) => {
+    const id = req.user._id
+    User.findOneAndUpdate({ _id: id }, req.body, err => {
+      if (err)
+        return res.json({
+          success: false,
+          message: "error during findOneAndUpdate"
+        })
+      return res.json({
+        success: true
+      })
+    })
+  })
+
   app.listen(port, () => {
     console.log("Listening on " + port)
   })
+}
+
+function ensureAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) {
+    next()
+  } else {
+    res.json({
+      success: false,
+      message: "not authenticated"
+    })
+  }
 }
 
 module.exports = setRoutes

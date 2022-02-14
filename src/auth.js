@@ -44,7 +44,8 @@ function setup(passport, User) {
             User.create(
               {
                 googleId: profile.id,
-                displayName: profile.name.givenName
+                displayName: profile.name.givenName,
+                someNumber: 0
               },
               (err, user) => {
                 if (err) return done(err)
