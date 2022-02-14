@@ -15,28 +15,25 @@ function setRoutes(app, User, passport) {
     const password = req.body.password || ""
 
     if (username == "" || password == "") {
-      console.log("invalid username or password")
       return res.json({
         success: false,
-        message: "invalid username or password"
+        message: "Username and password cannot be empty"
       })
     }
 
     // fail if username already exists
     User.findOne({ username: username }, (err, user) => {
       if (err) {
-        console.log("error during MongoDB username search")
         return res.json({
           success: false,
-          message: "error during MongoDB username search"
+          message: "Error during MongoDB username search, try again later"
         })
       }
 
       if (user) {
-        console.log("username already exist")
         return res.json({
           success: false,
-          message: "username already exist"
+          message: "Username already taken"
         })
       } else {
         // store new username and hashed password to mongoDB
@@ -50,21 +47,18 @@ function setRoutes(app, User, passport) {
           },
           (err, user) => {
             if (err) {
-              console.log("error during MongoDB create new user")
               return res.json({
                 success: false,
-                message: "error during MongoDB create new user"
+                message: "Error during MongoDB create new user, try again later"
               })
             }
             req.login(user, err => {
               if (err) {
-                console.log("error during login")
                 return res.json({
                   success: false,
-                  message: "error during login"
+                  message: "User successfully created, but error during login"
                 })
               }
-              console.log("successful login")
               return res.json({
                 success: true
               })
@@ -75,17 +69,19 @@ function setRoutes(app, User, passport) {
     })
   })
 
-  app.post("/login", passport.authenticate("local"), (req, res) => {
+  app.post("/login", passport.authenticate("local", { failureRedirect: "/login/failure" }), (req, res) => {
     if (req.isAuthenticated()) {
       return res.json({
         success: true
       })
-    } else {
-      return res.json({
-        success: false,
-        message: "login failed"
-      })
     }
+  })
+
+  app.get("/login/failure", (req, res) => {
+    return res.json({
+      success: false,
+      message: "login failed"
+    })
   })
 
   app.get("/auth/google", passport.authenticate("google", { scope: ["profile"] }))
