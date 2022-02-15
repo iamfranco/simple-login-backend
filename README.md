@@ -6,7 +6,7 @@ This is the backend of a simple login app (MERN stack).
 
 The frontend is [simple-login-client](https://github.com/iamfranco/simple-login-client).
 
-[[Click here for Demo frontend]](https://francochanco-simple-login.netlify.app)
+[[Click here for Demo frontend]](https://simple-login.francochan.co)
 
 [[Click here for Demo backend]](https://francochanco-simple-login.herokuapp.com)
 
@@ -28,7 +28,7 @@ where:
 - `CLIENT_URI` is the URL of the [simple-login-client](https://github.com/iamfranco/simple-login-client).
 
   We can set it as `http://localhost:3000` if it is still local,
-  <br>or as `https://francochanco-simple-login.netlify.app` if it is up on netlify.
+  <br>or as `https://simple-login.francochan.co` if it is up on the web.
 
 - `URI_IS_REMOTE_SECURE` set as `TRUE` if the site is already up on heroku etc with the `https:`, otherwise leave it as `FALSE` if it's `http://localhost...`
 - `MONGO_URI` is the MongoDB connection string
