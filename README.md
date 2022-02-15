@@ -16,7 +16,7 @@ Within the root folder, create a `.env` file containing the environment variable
 
 ```
 CLIENT_URI=http://localhost:3000
-URI_IS_REMOTE=FALSE
+URI_IS_REMOTE_SECURE=FALSE
 MONGO_URI=
 SESSION_SECRET=
 GOOGLE_CLIENT_ID=
@@ -30,7 +30,7 @@ where:
   We can set it as `http://localhost:3000` if it is still local,
   <br>or as `https://francochanco-simple-login.netlify.app` if it is up on netlify.
 
-- `URI_IS_REMOTE` set as `TRUE` if the site is already up on heroku etc with the `https:`, otherwise leave it as `FALSE` if it's `http://localhost...`
+- `URI_IS_REMOTE_SECURE` set as `TRUE` if the site is already up on heroku etc with the `https:`, otherwise leave it as `FALSE` if it's `http://localhost...`
 - `MONGO_URI` is the MongoDB connection string
 - `SESSION_SECRET` could be any random string we like, for express-session
 - `GOOGLE_CLIENT_ID` is the client id for google OAuth

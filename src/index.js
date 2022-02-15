@@ -21,7 +21,7 @@ const sessionStore = connectDB.sessionStore
 
 auth.setup(passport, User) // passport JS strategies (local and Google)
 
-const isSiteRemote = process.env.URI_IS_REMOTE === "TRUE"
+const isSiteRemoteSecure = process.env.URI_IS_REMOTE_SECURE === "TRUE"
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
@@ -31,8 +31,8 @@ app.use(
     cookie: {
       maxAge: 7 * 24 * 60 * 60 * 1000, // 1 week
 
-      // if site is not local...
-      ...(isSiteRemote && {
+      // if site is remote and secure...
+      ...(isSiteRemoteSecure && {
         secure: true,
         sameSite: "none"
       })
